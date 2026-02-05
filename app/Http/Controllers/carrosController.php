@@ -39,6 +39,29 @@ class CarrosController extends Controller
 
     public function update(Request $request,string $carros)
     {
+        $validated = $request->validade([
+        'modelo'=>['required','string','max:255'],
+        'placa'=>['required|string|unique|max:7'],
+        'marca'=>['required','string','max:255'],
+        'ano'=>['required', 'integer', 'min:1900', 'max:' . date('Y')],
+        'cor'=>['required','string','max:50'],
+        'preco_aluguel'=>['requirede','decimal'],
+        'descricao'=>['requirede','string','max:1000'],
+       ]);
+       Carros::update([
+        'modelo'=>$validated['modelo'],
+        'placa'=>$validated['placa'],
+        'marca'=>$validated['marca'],
+        'ano'=>$validated['ano'],
+        'preco_aluguel'=>$validated['preco_aluguel'],
+        'descricao'=>$validated['descricao'],
+       ]);
+       return redirect()->route('carros.index');
+    }
 
+    public function destroy(Request $request,string $carros)
+    {
+        $carros->delete();
+        return redirect()->route('carros.index');
     }
 }
