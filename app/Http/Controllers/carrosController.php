@@ -41,7 +41,7 @@ class CarrosController extends Controller
     {
         $validated = $request->validade([
         'modelo'=>['required','string','max:255'],
-        'placa'=>['required|string|unique|max:7'],
+        'placa' => ['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/','unique:veiculos,placa',],
         'marca'=>['required','string','max:255'],
         'ano'=>['required', 'integer', 'min:1900', 'max:' . date('Y')],
         'cor'=>['required','string','max:50'],
