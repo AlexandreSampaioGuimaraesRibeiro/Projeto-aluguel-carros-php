@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Carros;
 
 class CarrosController extends Controller
 {
@@ -19,7 +20,7 @@ class CarrosController extends Controller
        //validando as variaveis
        $validated = $request->validade([
         'modelo'=>['required','string','max:255'],
-        'placa'=>['required|string|unique|max:7'],
+        'placa'=>['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/','unique:veiculos,placa'],
         'marca'=>['required','string','max:255'],
         'ano'=>['required', 'integer', 'min:1900', 'max:' . date('Y')],
         'cor'=>['required','string','max:50'],
@@ -41,7 +42,7 @@ class CarrosController extends Controller
     {
         $validated = $request->validade([
         'modelo'=>['required','string','max:255'],
-        'placa' => ['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/','unique:veiculos,placa',],
+        'placa' => ['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/','unique:veiculos,placa'],
         'marca'=>['required','string','max:255'],
         'ano'=>['required', 'integer', 'min:1900', 'max:' . date('Y')],
         'cor'=>['required','string','max:50'],
