@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('modelo');
             $table->string('placa')->unique();
             $table->string('marca');
-            $table->year('ano');
+            $table->integer('ano');
+            $table->string('cor');
             $table->decimal('preco_aluguel');
             $table->string('descricao');
             $table->timestamps();
