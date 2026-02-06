@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('ano');
             $table->string('cor');
             $table->decimal('preco_aluguel');
+            $table->enum('status',['disponível','Indisponivel' ])->default('disponível');
             $table->string('descricao');
             $table->timestamps();
         });

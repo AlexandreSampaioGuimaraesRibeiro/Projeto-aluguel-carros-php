@@ -9,5 +9,5 @@ class Carros extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['modelo','placa','marca','ano','cor','preco_aluguel','descricao'];
+    protected $fillable = ['modelo','placa','marca','ano','cor','preco_aluguel','status','descricao'];
 }

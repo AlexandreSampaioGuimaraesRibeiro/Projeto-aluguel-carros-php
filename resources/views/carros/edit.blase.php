@@ -13,34 +13,7 @@
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
-
-            <h2 class="mb-4 text-center">CRUD de Carros</h2>
-
-            {{-- Erros --}}
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <b>Ops:</b>
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            {{-- Cadastrar carro --}}
-                @csrf
-                <div class="row g-2">
-                    <div class="col-md-1 d-grid"><a href= "{{ route('carros.create') }}">
-                        <button class="btn btn-primary" type="submit">Adicionar</button>
-                        </a>
-                    </div>
-                </div>
-            
-
-            <hr>
-
-            {{-- Listagem --}}
+    {{-- Listagem --}}
             @forelse($carros as $carro)
                 <div class="card mb-3">
                     <div class="card-body">
@@ -67,6 +40,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <input type="text" name="preco_aluguel" class="form-control" placeholder="preco_aluguel" value="{{ old('preco_aluguel') }}">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="status" class="form-control" placeholder="status" value="{{ old('status') }}">
                                 </div>
                                 <div class="col-md-4">
                                     <input type="text" name="descricao" class="form-control" placeholder="descricao" value="{{ old('descricao') }}">
@@ -100,9 +76,3 @@
         </div>
     </div>
 </div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-</html>

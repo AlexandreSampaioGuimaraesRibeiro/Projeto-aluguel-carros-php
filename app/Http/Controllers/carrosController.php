@@ -27,12 +27,15 @@ class CarrosController extends Controller
         'preco_aluguel'=>['requirede','decimal'],
         'descricao'=>['requirede','string','max:1000'],
        ]);
+       
+       $validated['status']='disponível';
        Carros::create([
         'modelo'=>$validated['modelo'],
         'placa'=>$validated['placa'],
         'marca'=>$validated['marca'],
         'ano'=>$validated['ano'],
         'preco_aluguel'=>$validated['preco_aluguel'],
+        'status'=>$validated['status'],
         'descricao'=>$validated['descricao'],
        ]);
        return redirect()->route('carros.index');
@@ -47,6 +50,7 @@ class CarrosController extends Controller
         'ano'=>['required', 'integer', 'min:1900', 'max:' . date('Y')],
         'cor'=>['required','string','max:50'],
         'preco_aluguel'=>['requirede','decimal'],
+        'status'=>['required','enum'],
         'descricao'=>['requirede','string','max:1000'],
        ]);
        Carros::update([
@@ -55,6 +59,7 @@ class CarrosController extends Controller
         'marca'=>$validated['marca'],
         'ano'=>$validated['ano'],
         'preco_aluguel'=>$validated['preco_aluguel'],
+        'status'=>$validated['status'],
         'descricao'=>$validated['descricao'],
        ]);
        return redirect()->route('carros.index');
