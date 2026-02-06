@@ -30,13 +30,14 @@
 
             {{-- Cadastrar carro --}}
                 @csrf
-                <div class="row g-2">
-                    <div class="col-md-1 d-grid"><a href= "{{ route('carros.create') }}">
-                        <button class="btn btn-primary" type="submit">Cadastrar carro</button>
-                        </a>
+                <form action="{{ route('carros.create') }}" method="POST" class="mb-4">
+                    <div class="row g-2">
+                        <div class="col-md-1 d-grid"><a href= "{{ route('carros.create') }}">
+                            <button class="btn btn-primary" type="submit">Cadastrar carro</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            
+                </form>
 
             <hr>
 
@@ -49,30 +50,11 @@
                             @csrf
                             @method('PUT')
 
-                            <div class="row g-2 align-items-center">
-                                <div class="col-md-4">
-                                    <input type="text" name="modelo" class="form-control" placeholder="Nome do modelo" value="{{ old('modelo') }}">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="placa" class="form-control" placeholder="placa" value="{{ old('placa') }}">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="marca" class="form-control" placeholder="marca" value="{{ old('marca') }}">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="number" name="ano" class="form-control" placeholder="ano" value="{{ old('ano') }}">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="cor" class="form-control" placeholder="cor" value="{{ old('cor') }}">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="preco_aluguel" class="form-control" placeholder="preco_aluguel" value="{{ old('preco_aluguel') }}">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="descricao" class="form-control" placeholder="descricao" value="{{ old('descricao') }}">
-                                </div>
+                            <div class="row g-2">
                                 <div class="col-md-1 d-grid">
-                                    <button class="btn btn-success" type="submit">Salvar</button>
+                                    <a href= "{{ route('carros.update') }}">
+                                        <button class="btn btn-primary" type="submit">Modificar informações do carro</button>
+                                    </a>
                                 </div>
                             </div>
 
