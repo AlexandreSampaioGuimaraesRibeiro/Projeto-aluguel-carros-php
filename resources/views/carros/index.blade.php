@@ -32,7 +32,7 @@
                 @csrf
                 <div class="row g-2">
                     <div class="col-md-1 d-grid"><a href= "{{ route('carros.create') }}">
-                        <button class="btn btn-primary" type="submit">Adicionar</button>
+                        <button class="btn btn-primary" type="submit">Cadastrar carro</button>
                         </a>
                     </div>
                 </div>
