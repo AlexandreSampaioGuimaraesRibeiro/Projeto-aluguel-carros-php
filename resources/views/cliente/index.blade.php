@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD de Carros</title>
+    <title>CRUD de Cliente</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
 
-            <h2 class="mb-4 text-center">CRUD de Carros</h2>
+            <h2 class="mb-4 text-center">CRUD de Cliente</h2>
 
             {{-- Erros --}}
             @if ($errors->any())
@@ -28,23 +28,23 @@
                 </div>
             @endif
 
-            {{-- Cadastrar carro --}}
+            {{-- Cadastrar cliente --}}
                 @csrf
-                    <a href= "{{ route('carros.create') }}">
-                            <button class="btn btn-primary" type="submit">Cadastrar carro</button>
+                    <a href= "{{ route('cliente.create') }}">
+                            <button class="btn btn-primary" type="submit">Cadastrar cliente</button>
                     </a>
 
 
             <hr>
 
             {{-- Listagem --}}
-            @forelse($carros as $carro)
+            @forelse($cliente as $cliente)
                 <div class="card mb-3">
                     <div class="card-body">
 
                        
-                            <a href= "{{ route('carros.update') }}">
-                                <button class="btn btn-primary" type="submit">Modificar informações do carro</button>
+                            <a href= "{{ route('cliente.update') }}">
+                                <button class="btn btn-primary" type="submit">Modificar informações do cliente</button>
                             </a>
                            
                             
@@ -54,10 +54,10 @@
                             </div>
                         
 
-                        <form action="{{ route('carros.destroy', $carro) }}" method="POST" class="mt-3">
+                        <form action="{{ route('cliente.destroy', $cliente) }}" method="POST" class="mt-3">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit" onclick="return confirm('Excluir este carro?')">
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('Excluir este cliente?')">
                                 Excluir
                             </button>
                         </form>
@@ -66,7 +66,7 @@
                 </div>
             @empty
                 <div class="alert alert-info">
-                    Nenhum carro cadastrado.
+                    Nenhum Cliente cadastrado.
                 </div>
             @endforelse
 

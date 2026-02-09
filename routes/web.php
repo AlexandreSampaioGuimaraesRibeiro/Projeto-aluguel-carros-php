@@ -13,7 +13,12 @@ use App\Http\Controllers\CarrosController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [CarrosController::class, 'index'])->name('carros.index');
-Route::post('/carros', [CarrosController::class, 'create'])->name('carros.create');
-Route::put('/carros/{carros}', [CarrosController::class, 'update'])->name('carros.update');
-Route::delete('/carros/{carros}', [CarrosController::class, 'destroy'])->name('carros.destroy');
+//Carros Routes
+Route::get('/carros', [CarrosController::class, 'index'])->name('carros.index');
+Route::get('/carros/create', [CarrosController::class, 'create'])->name('carros.create');
+
+Route::post('/carros', [CarrosController::class, 'store'])->name('carros.store');
+Route::get('/carros/{id}', [CarrosController::class, 'show'])->name('carros.show');
+Route::get('/carros/{id}/edit', [CarrosController::class, 'edit'])->name('carros.edit');
+Route::put('/carros/{id}', [CarrosController::class, 'update'])->name('carros.update');
+Route::delete('/carros/{id}', [CarrosController::class, 'destroy'])->name('carros.destroy');

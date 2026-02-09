@@ -41,8 +41,12 @@
                                 <div class="col-md-4">
                                     <input type="text" name="preco_aluguel" class="form-control" placeholder="preco_aluguel" value="{{ old('preco_aluguel') }}">
                                 </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="status" class="form-control" placeholder="status" value="{{ old('status') }}">
+                                <div class="mb-3">
+                                    <label class="form-label">Status</label>
+                                    <select name="status" class="form-select">
+                                        <option value="disponivel">Disponível</option>
+                                        <option value="manutencao">Manutenção</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <input type="text" name="descricao" class="form-control" placeholder="descricao" value="{{ old('descricao') }}">
@@ -67,6 +71,10 @@
 
                     </div>
                 </div>
+                 {{-- Voltar --}}
+                <a href= "{{ route('carros.index') }}">
+                            <button class="btn btn-primary" type="submit">Voltar</button>
+                </a>
             @empty
                 <div class="alert alert-info">
                     Nenhum carro cadastrado.

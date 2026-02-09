@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    
+
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -29,7 +29,7 @@
             @endif
 
             {{-- Cadastrar carro --}}
-            <form action="{{ route('carros.create') }}" method="POST" class="mb-4">
+            <form action="{{ route('carros.store') }}" method="POST" class="mb-4">
                 @csrf
                 <div class="row g-2">
                     <div class="col-md-4">
@@ -50,6 +50,13 @@
                      <div class="col-md-4">
                         <input type="text" name="preco_aluguel" class="form-control" placeholder="preco_aluguel" value="{{ old('preco_aluguel') }}">
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select name="status" class="form-select">
+                            <option value="disponivel">Disponível</option>
+                            <option value="manutencao">Indisponível</option>
+                        </select>
+                    </div>
                      <div class="col-md-4">
                         <input type="text" name="descricao" class="form-control" placeholder="descricao" value="{{ old('descricao') }}">
                     </div>
@@ -58,6 +65,10 @@
                     </div>
                 </div>
             </form>
+            {{-- Voltar --}}
+            <a href= "{{ route('carros.index') }}">
+                            <button class="btn btn-primary" type="submit">Voltar</button>
+            </a>
             
         </div>
     </div>

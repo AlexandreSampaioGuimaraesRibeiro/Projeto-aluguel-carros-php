@@ -11,16 +11,22 @@ class CarrosController extends Controller
     public function index()
     {
         //indice ordernado por id
-        $carros= Carros::orderByDesc('id')->get();
+        $carros= Carros::orderByDesc('status')->get();
         return view('carros.index',compact('carros'));  
     }
 
-     public function create(Request $request)
+    
+    public function create()
     {
-       //validando as variaveis
+        return view('carros.create');
+    }
+
+    public function store(Request $request)
+    {
+        //validando as variaveis
        $validated = $request->validade([
         'modelo'=>['required','string','max:255'],
-        'placa'=>['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/','unique:veiculos,placa'],
+        'placa'=>['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/'],
         'marca'=>['required','string','max:255'],
         'ano'=>['required', 'integer', 'min:1900', 'max:' . date('Y')],
         'cor'=>['required','string','max:50'],
@@ -38,6 +44,7 @@ class CarrosController extends Controller
         'status'=>$validated['status'],
         'descricao'=>$validated['descricao'],
        ]);
+
        return redirect()->route('carros.index');
     }
 
@@ -45,7 +52,7 @@ class CarrosController extends Controller
     {
         $validated = $request->validade([
         'modelo'=>['required','string','max:255'],
-        'placa' => ['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/','unique:veiculos,placa'],
+        'placa' => ['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/'],
         'marca'=>['required','string','max:255'],
         'ano'=>['required', 'integer', 'min:1900', 'max:' . date('Y')],
         'cor'=>['required','string','max:50'],
@@ -62,12 +69,12 @@ class CarrosController extends Controller
         'status'=>$validated['status'],
         'descricao'=>$validated['descricao'],
        ]);
-       return redirect()->route('carros.index');
+       return redirect()->route('carros.edit');
     }
 
     public function destroy(Request $request,string $carros)
     {
         $carros->delete();
-        return redirect()->route('carros.index');
+        return redirect()->route('carros.edit');
     }
 }
