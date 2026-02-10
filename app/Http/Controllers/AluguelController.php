@@ -43,7 +43,15 @@ class AluguelController extends Controller
             $dias = (strtotime($validated['data_fim']) - strtotime($validated['data_inicio'])) / (60 * 60 * 24) + 1;
             $validated['valor_total'] = $validated['valor_diaria'] * $dias;
 
-        Aluguel::create($validated);
+        Aluguel::create([
+        'data_inicio'=>$validated['data_inicio'],
+        'data_fim'=>$validated['data_fim'],
+        'valor_diaria'=>$validated['valor_diaria'],
+        'valor_total'=>$validated['valor_total'],
+        'status'=>$validated['status'],
+        'carro_id'=>$validated['carro_id'],
+        'cliente_id'=>$validated['cliente_id'],
+        ]);
 
         return redirect()->route('aluguel.index');
     }
@@ -82,8 +90,15 @@ class AluguelController extends Controller
         $validated['valor_total'] = $validated['valor_diaria'] * $dias;
 
         $aluguel->update($validated);
-        Aluguel::update($validated);
-
+        Aluguel::update([
+        'data_inicio'=>$validated['data_inicio'],
+        'data_fim'=>$validated['data_fim'],
+        'valor_diaria'=>$validated['valor_diaria'],
+        'valor_total'=>$validated['valor_total'],
+        'status'=>$validated['status'],
+        'carro_id'=>$validated['carro_id'],
+        'cliente_id'=>$validated['cliente_id'],
+        ]);
         return redirect()->route('aluguel.edit', $aluguel->id);
     }
 
@@ -93,6 +108,6 @@ class AluguelController extends Controller
     public function destroy(Aluguel $aluguel)
     {
         $aluguel->delete();
-        return redirect()->route('aluguel.index');
+        return redirect()->route('aluguel.edit');
     }
 }

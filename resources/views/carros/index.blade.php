@@ -1,3 +1,5 @@
+@extends('layouts.index')
+
 <!doctype html>
 <html lang="pt-br">
 <head>
