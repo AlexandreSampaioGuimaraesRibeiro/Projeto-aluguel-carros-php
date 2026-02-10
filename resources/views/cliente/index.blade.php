@@ -32,7 +32,7 @@
 
             {{-- Cadastrar cliente --}}
                 @csrf
-                    <a href= "{{ route('cliente.create') }}">
+                    <a href= "{{ route('clientes.create') }}">
                             <button class="btn btn-primary" type="submit">Cadastrar cliente</button>
                     </a>
 
@@ -40,12 +40,12 @@
             <hr>
 
             {{-- Listagem --}}
-            @forelse($cliente as $cliente)
+            @forelse($clientes as $cliente)
                 <div class="card mb-3">
                     <div class="card-body">
 
                        
-                            <a href= "{{ route('cliente.update') }}">
+                            <a href= "{{ route('clientes.update') }}">
                                 <button class="btn btn-primary" type="submit">Modificar informações do cliente</button>
                             </a>
                            
@@ -56,7 +56,7 @@
                             </div>
                         
 
-                        <form action="{{ route('cliente.destroy', $cliente) }}" method="POST" class="mt-3">
+                        <form action="{{ route('clientes.destroy', $cliente) }}" method="POST" class="mt-3">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit" onclick="return confirm('Excluir este cliente?')">

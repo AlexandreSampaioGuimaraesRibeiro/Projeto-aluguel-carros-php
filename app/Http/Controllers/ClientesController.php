@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+
+class ClientesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-         $cliente= Cliente::orderBy('nome')->get();
-        return view('cliente.index',compact('cliente'));
+        $clientes = Clientes::all();
+        return view('clientes.index',compact('clientes'));
     }
 
     /**
@@ -22,7 +23,7 @@ class ClienteController extends Controller
     public function create()
     {
        
-        return redirect()->route('cliente.create');
+        return redirect()->route('clientes.create');
     }
 
     /**
@@ -36,7 +37,7 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cliente $cliente)
+    public function show(clientes $clientes)
     {
          $validated = $request->validade([
             'nome'=>['string','required','max:255'],
@@ -44,27 +45,23 @@ class ClienteController extends Controller
             'senha'=>['required','string','max:255'],
         ]);
         $validated['status']='ativo';
-        Cliente::create([
+        Clientes::create([
             'nome'=> $validated['nome'],
             'email'=> $validated['email'],
             'senha'=> $validated['senha'],
             'status'=> $validated['status'],
         ]);
-        return redirect()->route('cliente.index');
+        return redirect()->route('clientes.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cliente $cliente)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, cliente $cliente)
+    public function update(Request $request, cliente $clientes)
     {
         $validated = $request->validade([
             'nome'=>['string','required','max:255'],
@@ -73,21 +70,21 @@ class ClienteController extends Controller
             'status'=>['required','enum'],
         ]);
         
-        Cliente::update([
+        Clientes::update([
             'nome'=> $validated['nome'],
             'email'=> $validated['email'],
             'senha'=> $validated['senha'],
             'status'=> $validated['status'],
         ]);
-        return redirect()->route('cliente.edit');
+        return redirect()->route('clientes.edit');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cliente $cliente)
+    public function destroy(clientes $clientes)
     {
-        $cliente->delete();
-        return redirect()->route('cliente.edit');
+        $clientes->delete();
+        return redirect()->route('clientes.edit');
     }
 }

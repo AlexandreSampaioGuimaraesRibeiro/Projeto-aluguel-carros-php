@@ -6,9 +6,9 @@ use App\Models\Aluguel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Carros;
-use App\Models\Clientes;
+use App\Models\Cliente;
 
-class AluguelController extends Controller
+class AluguelsController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarrosController;
-use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ClientesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,5 +24,5 @@ Route::put('/carros/{id}', [CarrosController::class, 'update'])->name('carros.up
 Route::delete('/carros/{id}', [CarrosController::class, 'destroy'])->name('carros.destroy');
 
 //Clientes Routes
-Route::get('/',[ClienteController::class,'index'])->name('clientes.index');
+Route::get('/',[ClientesController::class,'index'])->name('clientes.index');
 
