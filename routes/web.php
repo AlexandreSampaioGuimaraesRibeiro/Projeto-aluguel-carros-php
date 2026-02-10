@@ -22,3 +22,7 @@ Route::get('/carros/{id}', [CarrosController::class, 'show'])->name('carros.show
 Route::get('/carros/{id}/edit', [CarrosController::class, 'edit'])->name('carros.edit');
 Route::put('/carros/{id}', [CarrosController::class, 'update'])->name('carros.update');
 Route::delete('/carros/{id}', [CarrosController::class, 'destroy'])->name('carros.destroy');
+
+//Clientes Routes
+Route::resource('/',[ClientesController::class,'index'])->name('clientes.index');
+
