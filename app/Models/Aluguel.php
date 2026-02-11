@@ -10,5 +10,6 @@ use App\Models\Cliente;
 class Aluguel extends Model
 {
     use HasFactory;
+   protected $table = 'aluguel';
     protected $fillable =['data_inicio','data_fim','valor_diaria','valor_total','status','carro_id','cliente_id'];
 }
