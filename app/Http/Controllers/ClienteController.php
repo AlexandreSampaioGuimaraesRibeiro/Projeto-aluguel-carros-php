@@ -13,8 +13,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
-        return view('cliente.index',compact('clientes'));
+        $cliente = Cliente::all();
+        return view('cliente.index',compact('cliente'));
     }
 
     /**
@@ -37,7 +37,7 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cliente $clientes)
+    public function show(Cliente $cliente)
     {
          $validated = $request->validade([
             'nome'=>['string','required','max:255'],
@@ -61,7 +61,7 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $clientes)
+    public function update(Request $request, Cliente $cliente)
     {
         $validated = $request->validade([
             'nome'=>['string','required','max:255'],
@@ -82,9 +82,9 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cliente $clientes)
+    public function destroy(Cliente $cliente)
     {
-        $clientes->delete();
+        $cliente->delete();
         return redirect()->route('cliente.edit');
     }
 }

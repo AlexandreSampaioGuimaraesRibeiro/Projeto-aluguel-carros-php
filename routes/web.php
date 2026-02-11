@@ -25,10 +25,11 @@ Route::put('/carros/{id}', [CarrosController::class, 'update'])->name('carros.up
 Route::delete('/carros/{id}', [CarrosController::class, 'destroy'])->name('carros.destroy');
 
 //Clientes Routes
-Route::get('/', [ClienteController::class, 'index'])->name('cliente.index');
+Route::get('/', [ClienteController::class, 'index'])->name('layouts.index');
 
 Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
 Route::get('/cliente/create', [ClienteController::class, 'create'])->name('cliente.create');
+
 
 Route::post('/cliente', [ClienteController::class, 'store'])->name('cliente.store');
 Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('cliente.show');

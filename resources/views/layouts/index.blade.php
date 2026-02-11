@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Locadora</title>
+    <title>@yield('title', 'Locadora')</title>
 
     <!-- BELEZA DO SITE -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ms-auto gap-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('clientes.index') }}">
+                    <a class="nav-link" href="{{ route('cliente.index') }}">
                         <i class="bi bi-people-fill me-1"></i>Clientes
                     </a>
                 </li>
@@ -63,12 +63,13 @@
     </div>
 </nav>
 
-<!-- TODO O CONTEUDO -->
-<div class="container">
-    <div class="card p-4">
-        @yield('conteudo')
-    </div>
-</div>
+<main class="container py-4 flex-fill">
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    @yield('content')
+</main>
 
 <!-- BELEZA DO SITE -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
