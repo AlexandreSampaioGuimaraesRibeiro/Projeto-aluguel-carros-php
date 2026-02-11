@@ -28,7 +28,7 @@
             <hr>
 
             {{-- Listagem --}}
-            @forelse($aluguels as $aluguel)
+            @forelse($aluguel as $aluguel)
                 <div class="card mb-3">
                     <div class="card-body">
 

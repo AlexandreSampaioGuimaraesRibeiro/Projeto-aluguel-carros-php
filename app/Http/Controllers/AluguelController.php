@@ -42,7 +42,8 @@ class AluguelController extends Controller
             $validated['valor_diaria'] = Carros::find($validated['carro_id'])->preco_aluguel;
             $dias = (strtotime($validated['data_fim']) - strtotime($validated['data_inicio'])) / (60 * 60 * 24) + 1;
             $validated['valor_total'] = $validated['valor_diaria'] * $dias;
-
+            $cliente = 'cliente_id';
+            $carros = 'carro_id';
         Aluguel::create([
         'data_inicio'=>$validated['data_inicio'],
         'data_fim'=>$validated['data_fim'],

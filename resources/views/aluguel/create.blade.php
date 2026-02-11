@@ -33,7 +33,7 @@
                                 <label class="form-label fw-bold">Cliente</label>
                                 <select name="cliente_id" class="form-select">
                                     <option value="">Selecione o Cliente</option>
-                                    @foreach($clientes as $cliente)
+                                    @foreach($cliente as $cliente)
                                         <option value="{{ $cliente->id }}" {{ old('cliente_id' ) == $cliente->id ? 'selected' : '' }}>
                                             {{ $cliente->nome }} (CPF: {{ $cliente->cpf }})
                                         </option>
