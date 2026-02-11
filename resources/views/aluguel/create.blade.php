@@ -34,7 +34,7 @@
                                 <select name="cliente_id" class="form-select">
                                     <option value="">Selecione o Cliente</option>
                                     @foreach($clientes as $cliente)
-                                        <option value="{{ $cliente->id }}" {{ old('cliente_id') == $cliente->id ? 'selected' : '' }}>
+                                        <option value="{{ $cliente->id }}" {{ old('cliente_id' ) == $cliente->id ? 'selected' : '' }}>
                                             {{ $cliente->nome }} (CPF: {{ $cliente->cpf }})
                                         </option>
                                     @endforeach
@@ -47,7 +47,7 @@
                                 <select name="carro_id" class="form-select">
                                     <option value="">Selecione o Veículo</option>
                                     @foreach($carros as $carro)
-                                        <option value="{{ $carro->id }}" {{ old('carro_id') == $carro->id ? 'selected' : '' }}>
+                                        <option value="{{ $carro->id }}" {{ old('carro_id' ) == $carro->id ? 'selected' : '' }}>
                                             {{ $carro->modelo }} - {{ $carro->placa }} (R$ {{ $carro->preco_aluguel }}/dia)
                                         </option>
                                     @endforeach
