@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
 
-            <h2 class="mb-4 text-center">CRUD de Carros</h2>
+            
 
             {{-- Erros --}}
             @if ($errors->any())
