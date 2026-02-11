@@ -58,6 +58,12 @@
                         <i class="bi bi-car-front me-1"></i>Carros
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('aluguel.index') }}">
+                        <i class="bi bi-car-front me-1"></i>Alugar carro
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

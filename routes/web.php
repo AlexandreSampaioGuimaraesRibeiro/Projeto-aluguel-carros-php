@@ -36,3 +36,24 @@ Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('cliente.s
 Route::get('/cliente/{id}/edit', [ClienteController::class, 'edit'])->name('cliente.edit');
 Route::put('/cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
 Route::delete('/cliente/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
+
+// Listagem de aluguéis
+Route::get('/aluguel', [AluguelController::class, 'index'])->name('aluguel.index');
+
+// Formulário de criação
+Route::get('/aluguel/create', [AluguelController::class, 'create'])->name('aluguel.create');
+
+// Salvar novo aluguel
+Route::post('/aluguel', [AluguelController::class, 'store'])->name('aluguel.store');
+
+// Mostrar um aluguel específico (atualmente vazio no seu controller)
+Route::get('/aluguel/{aluguel}', [AluguelController::class, 'show'])->name('aluguel.show');
+
+// Formulário de edição
+Route::get('/aluguel/{aluguel}/edit', [AluguelController::class, 'edit'])->name('aluguel.edit');
+
+// Atualizar dados
+Route::put('/aluguel/{aluguel}', [AluguelController::class, 'update'])->name('aluguel.update');
+
+// Excluir aluguel
+Route::delete('/aluguel/{aluguel}', [AluguelController::class, 'destroy'])->name('aluguel.destroy');
