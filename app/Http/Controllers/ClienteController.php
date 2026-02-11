@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clientes;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 
@@ -13,7 +13,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Clientes::all();
+        $clientes = Cliente::all();
         return view('cliente.index',compact('clientes'));
     }
 
@@ -37,7 +37,7 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(clientes $clientes)
+    public function show(Cliente $clientes)
     {
          $validated = $request->validade([
             'nome'=>['string','required','max:255'],
@@ -45,7 +45,7 @@ class ClienteController extends Controller
             'senha'=>['required','string','max:255'],
         ]);
         $validated['status']='ativo';
-        Clientes::create([
+        Cliente::create([
             'nome'=> $validated['nome'],
             'email'=> $validated['email'],
             'senha'=> $validated['senha'],
@@ -61,7 +61,7 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, cliente $clientes)
+    public function update(Request $request, Cliente $clientes)
     {
         $validated = $request->validade([
             'nome'=>['string','required','max:255'],
@@ -70,7 +70,7 @@ class ClienteController extends Controller
             'status'=>['required','enum'],
         ]);
         
-        Clientes::update([
+        Cliente::update([
             'nome'=> $validated['nome'],
             'email'=> $validated['email'],
             'senha'=> $validated['senha'],
@@ -82,7 +82,7 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(clientes $clientes)
+    public function destroy(Cliente $clientes)
     {
         $clientes->delete();
         return redirect()->route('cliente.edit');

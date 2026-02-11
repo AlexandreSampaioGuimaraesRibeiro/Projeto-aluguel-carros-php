@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarrosController;
-use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\AluguelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +27,11 @@ Route::delete('/carros/{id}', [CarrosController::class, 'destroy'])->name('carro
 //Clientes Routes
 Route::get('/', [ClienteController::class, 'index'])->name('cliente.index');
 
-Route::get('/clientes', [ClienteController::class, 'index'])->name('cliente.index');
-Route::get('/clientes/create', [ClienteController::class, 'create'])->name('cliente.create');
+Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
+Route::get('/cliente/create', [ClienteController::class, 'create'])->name('cliente.create');
 
-Route::post('/cclientes', [ClienteController::class, 'store'])->name('cliente.store');
-Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('cliente.show');
-Route::get('/clientes/{id}/edit', [ClienteController::class, 'edit'])->name('cliente.edit');
-Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('cliente.update');
-Route::delete('/clientes/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
+Route::post('/cliente', [ClienteController::class, 'store'])->name('cliente.store');
+Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('cliente.show');
+Route::get('/cliente/{id}/edit', [ClienteController::class, 'edit'])->name('cliente.edit');
+Route::put('/cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
+Route::delete('/cliente/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');

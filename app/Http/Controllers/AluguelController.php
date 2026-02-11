@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Carros;
 use App\Models\Cliente;
 
-class AluguelsController extends Controller
+class AluguelController extends Controller
 {
     /**
      * Display a listing of the resource.
