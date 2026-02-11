@@ -24,5 +24,13 @@ Route::put('/carros/{id}', [CarrosController::class, 'update'])->name('carros.up
 Route::delete('/carros/{id}', [CarrosController::class, 'destroy'])->name('carros.destroy');
 
 //Clientes Routes
-Route::get('/',[ClientesController::class,'index'])->name('clientes.index');
+Route::get('/', [ClienteController::class, 'index'])->name('cliente.index');
 
+Route::get('/clientes', [ClienteController::class, 'index'])->name('cliente.index');
+Route::get('/clientes/create', [ClienteController::class, 'create'])->name('cliente.create');
+
+Route::post('/cclientes', [ClienteController::class, 'store'])->name('cliente.store');
+Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('cliente.show');
+Route::get('/clientes/{id}/edit', [ClienteController::class, 'edit'])->name('cliente.edit');
+Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('cliente.update');
+Route::delete('/clientes/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');

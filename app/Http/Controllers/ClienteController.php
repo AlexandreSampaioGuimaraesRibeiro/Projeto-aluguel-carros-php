@@ -6,7 +6,7 @@ use App\Models\Clientes;
 use Illuminate\Http\Request;
 
 
-class ClientesController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ClientesController extends Controller
     public function index()
     {
         $clientes = Clientes::all();
-        return view('clientes.index',compact('clientes'));
+        return view('cliente.index',compact('clientes'));
     }
 
     /**
@@ -23,7 +23,7 @@ class ClientesController extends Controller
     public function create()
     {
        
-        return redirect()->route('clientes.create');
+        return redirect()->route('cliente.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class ClientesController extends Controller
             'senha'=> $validated['senha'],
             'status'=> $validated['status'],
         ]);
-        return redirect()->route('clientes.index');
+        return redirect()->route('cliente.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class ClientesController extends Controller
             'senha'=> $validated['senha'],
             'status'=> $validated['status'],
         ]);
-        return redirect()->route('clientes.edit');
+        return redirect()->route('cliente.edit');
     }
 
     /**
@@ -85,6 +85,6 @@ class ClientesController extends Controller
     public function destroy(clientes $clientes)
     {
         $clientes->delete();
-        return redirect()->route('clientes.edit');
+        return redirect()->route('cliente.edit');
     }
 }
