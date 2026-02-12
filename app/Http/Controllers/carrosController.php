@@ -24,7 +24,7 @@ class CarrosController extends Controller
     public function store(Request $request)
     {
         //validando as variaveis
-       $validated = $request->validade([
+       $validated = $request->validate([
         'modelo'=>['required','string','max:255'],
         'placa'=>['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/'],
         'marca'=>['required','string','max:255'],
@@ -50,7 +50,7 @@ class CarrosController extends Controller
 
     public function update(Request $request,string $carros)
     {
-        $validated = $request->validade([
+        $validated = $request->validate([
         'modelo'=>['required','string','max:255'],
         'placa' => ['required','string','regex:/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/'],
         'marca'=>['required','string','max:255'],

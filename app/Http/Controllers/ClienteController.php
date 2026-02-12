@@ -39,7 +39,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-         $validated = $request->validade([
+         $validated = $request->validate([
             'nome'=>['string','required','max:255'],
             'email'=>['required','string','max:255'],
             'senha'=>['required','string','max:255'],
@@ -63,7 +63,7 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        $validated = $request->validade([
+        $validated = $request->validate([
             'nome'=>['string','required','max:255'],
             'email'=>['required','string','max:255'],
             'senha'=>['required','string','max:255'],
